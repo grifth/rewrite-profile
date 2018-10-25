@@ -13,13 +13,20 @@ a{
     clear: both;
 }
 .topNavBar{
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 16px;
     position: fixed;
     top: 0;left: 0;
     width: 100%;
 }
+.topNavBar .topNavBar-inner{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+}
+/* 注释
+    position:fixed 脱离文档流
+    fixed 之后 导航栏 缩成一行 解决 加width 100%
+    有width100% 的元素加padding 宽度会超过 父宽度 解决办法 在里面在加个div 把有width100%的元素的padding放到这个div中
+ */
 .topNavBar>.topNavBar-inner > nav{
     float: right;
     padding-top: 3px;
@@ -67,3 +74,4 @@ a{
     background: lightgreen;
     height: 600px;
 }
+
