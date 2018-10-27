@@ -94,7 +94,6 @@ hr{
     margin-left: 65px;
     width: 470px;
     border:1px solid red;
-
 }
 .userCard .welcome{
     background: #e6686a;
@@ -131,6 +130,10 @@ hr{
     float: left;
     padding: 5px 0;
     width: 43%;
+    height: 20px;
+}
+.userCard dl dt{
+    font-weight: bold;
 }
 footer.media{
     background: #e6686a;
