@@ -159,6 +159,22 @@ footer.media>a:hover{
     vertical-align: top;
 }
 
+body>main .download{
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    display: inline-block;
+    border:1px solid #CDCFd1;
+    background: #efefef;
+    border-radius:2px;
+    color:#3d4451;
+    margin: 32px 0;
+    font-weight: bold;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+    transition: all 0.5s;
+}
 
+body>main .download:hover{
+    box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.5);
 
-
+}
