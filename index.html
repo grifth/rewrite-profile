@@ -8,6 +8,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
     <style type="text/css">
+        @keyframes s {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+
+            100% {
+                width: 100px;
+                height: 100px;
+                opacity: 0;
+            }
+        }
+
         .icon {
             width: 1em;
             height: 1em;
@@ -15,13 +29,51 @@
             fill: currentColor;
             overflow: hidden;
         }
+
+        /* .sitewelcome {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: gray;
+            height: 100%;
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sitewelcome::before,
+        .sitewelcome::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: black;
+            border-radius: 50%;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            animation: s 1s linear infinite;
+        }
+
+        .sitewelcome::after {
+            animation-delay: 0.75s;
+        }
+
+        .sitewelcome.active {
+            display: flex;
+        } */
     </style>
 </head>
 <script src="https://at.alicdn.com/t/font_890386_xft5cr79sxl.js
 "></script>
 
 <body>
-    <div class="topNavBar">
+    <!-- <div id="sitewelcome" class="sitewelcome active"></div> -->
+    <div id="topNavBar" class="topNavBar">
         <div class="topNavBar-inner clearfix">
             <a href="" class="logo">
                 <span class="rs">RS</span><span class="card">card</span>
@@ -88,7 +140,19 @@
             技能:标准肥宅 没有技能
         </p>
     </main>
+    <script>
+        // setTimeout(function(){
+        //     sitewelcome.classList.remove('active')
+        // },5000)
 
+        window.onscroll = function(x){
+            if(window.scrollY>0){
+                topNavBar.classList.add('sticky')
+            }else{
+                topNavBar.classList.remove('sticky')
+            }         
+        }
+    </script>
 </body>
 
 </html>
