@@ -80,8 +80,22 @@
             </a>
             <nav>
                 <ul class="clearfix">
-                    <li><a href="">导航1</a></li>
-                    <li><a href="">导航2</a></li>
+                    <li class="menuTigger">
+                        <a href="">导航1</a>
+                        <ul class="submenu">
+                            <li>作品1</li>
+                            <li>作品2</li>
+                            <li>作品3</li>
+                        </ul>
+                    </li>
+                    <li class="menuTigger">
+                        <a href="">导航2</a>
+                        <ul class="submenu">
+                            <li>作品1</li>
+                            <li>作品2</li>
+                            <li>作品3</li>
+                        </ul>
+                    </li>
                     <li><a href="">导航3</a></li>
                     <li><a href="">导航4</a></li>
                     <li><a href="">导航5</a></li>
@@ -145,12 +159,23 @@
         //     sitewelcome.classList.remove('active')
         // },5000)
 
-        window.onscroll = function(x){
-            if(window.scrollY>0){
+        window.onscroll = function (x) {
+            if (window.scrollY > 0) {
                 topNavBar.classList.add('sticky')
-            }else{
+            } else {
                 topNavBar.classList.remove('sticky')
-            }         
+            }
+        }
+
+        let liTags = document.getElementsByClassName('menuTigger')
+
+        for (let i = 0; i < liTags.length; i++) {
+            liTags[i].onmouseenter = function (x) {
+                x.currentTarget.classList.add('active')
+            }
+            liTags[i].onmouseleave = function (x) {
+                x.currentTarget.classList.remove('active')
+            }
         }
     </script>
 </body>
