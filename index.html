@@ -78,7 +78,7 @@
             <a href="" class="logo">
                 <span class="rs">RS</span><span class="card">card</span>
             </a>
-            <nav>
+            <nav class="menu">
                 <ul class="clearfix">
                     <li class="menuTigger">
                         <a href="">导航1</a>
@@ -167,7 +167,7 @@
             }
         }
 
-        let liTags = document.getElementsByClassName('menuTigger')
+        let liTags = document.querySelectorAll('nav.menu>ul>li')
 
         for (let i = 0; i < liTags.length; i++) {
             liTags[i].onmouseenter = function (x) {
