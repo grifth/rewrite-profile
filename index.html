@@ -7,7 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./node_modules/swiper/dist/css/swiper.min.css">
     <style type="text/css">
+        .swiper-container {
+            width: 668px;
+            height: 501px;
+        }
+        .swiper-wrapper img{
+          width: 668px;
+          height: 501px;
+        }
         @keyframes s {
             0% {
                 width: 0;
@@ -148,13 +157,76 @@
         <p style="text-align:center">
             <a href="./简历.pdf" class="download" target="_blank" download>下载PDF简历</a>
         </p>
-        <p>
+        <p class="self-introduction">
             前端菜鸟,
             <br>
             技能:标准肥宅 没有技能
         </p>
     </main>
-    <script>
+    <section class="skills">
+       <h2>技能</h2>
+        <ol class="clearfix">
+                 <li>
+                    <h3>html&&css</h3>
+                    <div class="progressBar">
+                      <div class="progress"></div>
+                    </div>
+                 </li>
+                 <li>
+                    <h3>javascript</h3>
+                    <div class="progressBar">
+                      <div class="progress"></div>
+                    </div>
+                 </li>
+                 <li>
+                    <h3>jquery</h3>
+                    <div class="progressBar">
+                      <div class="progress"></div>
+                    </div>
+                 </li>
+                 <li>
+                    <h3>vue.js</h3>
+                    <div class="progressBar">
+                      <div class="progress"></div>
+                    </div>
+                 </li>
+                 <li>
+                    <h3>react.js</h3>
+                    <div class="progressBar">
+                      <div class="progress"></div>
+                    </div>
+                 </li>
+                 <li>
+                    <h3>node.js</h3>
+                    <div class="progressBar">
+                      <div class="progress"></div>
+                    </div>
+                 </li>
+               </ol>
+    </section>
+    <section class="portfolio">
+      <h2>作品</h2>
+      <div class="swiper-container">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="./1.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="./2.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="./3.jpg" alt=""></div>
+          </div>
+          <!-- 如果需要分页器 -->
+          <!-- <div class="swiper-pagination"></div> -->
+
+          <!-- 如果需要导航按钮 -->
+          <!-- <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div> -->
+
+          <!-- 如果需要滚动条 -->
+          <!-- <div class="swiper-scrollbar"></div> -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+<script src="./node_modules/swiper/dist/js/swiper.min.js"></script>
+<script>
         // setTimeout(function(){
         //     sitewelcome.classList.remove('active')
         // },5000)
@@ -179,5 +251,23 @@
         }
     </script>
 </body>
-
+<script type="text/javascript">
+var mySwiper = new Swiper ('.swiper-container', {
+direction: 'horizontal', // 垂直切换选项
+loop: true, // 循环模式选项
+// 如果需要分页器
+pagination: {
+  el: '.swiper-pagination',
+},
+// 如果需要前进后退按钮
+navigation: {
+  nextEl: '.swiper-button-next',
+  prevEl: '.swiper-button-prev',
+},
+// 如果需要滚动条
+scrollbar: {
+  el: '.swiper-scrollbar',
+},
+})
+</script>
 </html>

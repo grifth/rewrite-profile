@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body{
     background: #efefef;
@@ -11,10 +12,17 @@ a{
     text-decoration: none;
 }
 
+ul,ol{
+  list-style: none;
+}
+
 hr{
     height: 0;
     border: none;
     border-top:1px solid #dedede;
+}
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
 }
 .clearfix::after{
     content: '';
@@ -99,7 +107,7 @@ hr{
    height: 3px;
    animation: menuSlide .3s;
    /* 0可以省略 */
-} 
+}
 
 
 .topNavBar-inner{
@@ -111,7 +119,7 @@ hr{
         width: 0;
     }
     100%{
-        width: 100%; 
+        width: 100%;
     }
 }
 
@@ -198,12 +206,13 @@ footer.media{
 }
 
 footer.media>a{
+  transition: all .5s;
     display: inline-block;
     width: 40px;
     line-height: 30px;
     padding: 5px 0;
     border-radius: 50%;
-    margin: 16px 16px; 
+    margin: 16px 16px;
 
 }
 footer.media>a:hover{
@@ -236,3 +245,75 @@ body>main .download:hover{
 
 }
 
+section.skills{
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+
+section.skills>h2{
+  text-align: center;
+  color:#3d4451;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+section.skills>h3{
+  font-size: 14px;
+  line-height: 1.1;
+  padding-right: 40px;
+}
+section.skills>ol{
+  background: white;
+  box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+  padding: 42px 50px 10px;
+}
+section.skills>ol>li{
+  float: left;
+  font-size: 14px;
+  width: 50%;
+  padding-right: 20px;
+}
+section.skills>ol>li:nth-child(odd){
+
+}
+section.skills>ol>li:nth-child(even){
+        float: right;
+}
+section.skills .progressBar{
+  height: 5px;
+  background: #FAE1E1;
+  margin: 4px 0 40px;
+}
+section.skills .progressBar>.progress{
+  height: 100%;
+  background: #E6686A;
+  width: 70%;
+}
+.self-introduction{
+  max-width: 948px;
+  margin: auto auto;
+  text-align: center;
+  font-family: 'kai';
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.portfolio{
+    text-align: center;
+    margin-bottom: 100px;
+    max-width: 720px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+section.portfolio h2 {
+    margin-bottom: 32px;
+}
+section.portfolio > h2 {
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
