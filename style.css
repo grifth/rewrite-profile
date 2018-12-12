@@ -158,7 +158,6 @@ h1,h2,h3,h4,h5,h6{
     float: left;
     margin-left: 65px;
     width: 470px;
-    border:1px solid red;
 }
 .userCard .welcome{
     background: #e6686a;
@@ -197,6 +196,11 @@ h1,h2,h3,h4,h5,h6{
     width: 43%;
     height: 20px;
 }
+.userCard dl dd{
+margin-bottom: 40px;  
+}
+
+
 .userCard dl dt{
     font-weight: bold;
 }
