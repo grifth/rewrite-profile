@@ -38,6 +38,9 @@
             fill: currentColor;
             overflow: hidden;
         }
+        .swiper-container{
+          z-index: 0;
+        }
 
         /* .sitewelcome {
             display: none;
@@ -225,6 +228,7 @@
           <div class="swiper-button-prev"></div>
       </div>
     </section>
+  </body>
 <script src="./node_modules/swiper/dist/js/swiper.min.js"></script>
 <script>
         // setTimeout(function(){
@@ -249,25 +253,51 @@
                 x.currentTarget.classList.remove('active')
             }
         }
+
+    let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+    for(let i = 0;i<aTags.length;i++){
+      aTags[i].onclick = (x)=>{
+        x.preventDefault()//阻止默认动作
+        let a = x.currentTarget
+        let href = a.getAttribute('href')
+        let element = document.querySelector(href)
+        let top = element.offsetTop
+
+        let n = 25
+        let duration = 500/n
+        let currentTop = window.scrollY
+        let targetTop = top - 80
+        let speed = (targetTop - currentTop) / n
+        let i = 0
+        let id = setInterval(()=>{
+          console.log(duration)
+          if(i===n){
+            window.clearInterval(id)
+            return
+          }
+          i++
+          window.scrollTo(0,currentTop + speed * i)
+        },duration)
+      }
+    }
     </script>
-</body>
 <script type="text/javascript">
-var mySwiper = new Swiper ('.swiper-container', {
-direction: 'horizontal', // 垂直切换选项
-loop: true, // 循环模式选项
-// 如果需要分页器
-pagination: {
-  el: '.swiper-pagination',
-},
-// 如果需要前进后退按钮
-navigation: {
-  nextEl: '.swiper-button-next',
-  prevEl: '.swiper-button-prev',
-},
-// 如果需要滚动条
-scrollbar: {
-  el: '.swiper-scrollbar',
-},
-})
+  var mySwiper = new Swiper ('.swiper-container', {
+  direction: 'horizontal', // 垂直切换选项
+  loop: true, // 循环模式选项
+  // 如果需要分页器
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  // 如果需要前进后退按钮
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  // 如果需要滚动条
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+  })
 </script>
 </html>

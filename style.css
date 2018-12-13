@@ -197,7 +197,7 @@ h1,h2,h3,h4,h5,h6{
     height: 20px;
 }
 .userCard dl dd{
-margin-bottom: 40px;  
+margin-bottom: 40px;
 }
 
 
@@ -262,6 +262,7 @@ section.skills>h2{
   font-size: 34px;
   line-height: 1.2;
   font-weight: 600;
+  margin-bottom: 32px;
 }
 section.skills>h3{
   font-size: 14px;
