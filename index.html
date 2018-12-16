@@ -12,10 +12,12 @@
         .swiper-container {
             width: 668px;
             height: 501px;
+            z-index: -1;
         }
         .swiper-wrapper img{
           width: 668px;
-          height: 501px;
+          height: 501px;            z-index: -1;
+
         }
         @keyframes s {
             0% {
@@ -121,7 +123,7 @@
         </div>
     </div>
     <main style="margin-top:-340px">
-        <div id="about" class="userCard ">
+        <div data-x id="about" class="userCard ">
             <div class="textAndPicture clearfix">
                 <div class="picture">
                     <img src="./head.jpg" alt="头像" width=299 height=347>
@@ -166,7 +168,7 @@
             技能:标准肥宅 没有技能
         </p>
     </main>
-    <section id="skills"  class="skills">
+    <section data-x id="skills"  class="skills">
        <h2>技能</h2>
         <ol class="clearfix">
                  <li>
@@ -207,7 +209,7 @@
                  </li>
                </ol>
     </section>
-    <section id="works" class="portfolio">
+    <section data-x id="works" class="portfolio">
       <h2>作品</h2>
       <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -229,6 +231,7 @@
       </div>
     </section>
   </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
 <script src="./node_modules/swiper/dist/js/swiper.min.js"></script>
 <script>
         // setTimeout(function(){
@@ -263,21 +266,27 @@
         let element = document.querySelector(href)
         let top = element.offsetTop
 
-        let n = 25
-        let duration = 500/n
         let currentTop = window.scrollY
         let targetTop = top - 80
-        let speed = (targetTop - currentTop) / n
-        let i = 0
-        let id = setInterval(()=>{
-          console.log(duration)
-          if(i===n){
-            window.clearInterval(id)
-            return
+        let s = Math.abs(targetTop - currentTop)
+        let t = (s/100)*300
+        if(t>500){t = 500}
+
+        function animate(time) {
+                requestAnimationFrame(animate);
+                TWEEN.update(time);
           }
-          i++
-          window.scrollTo(0,currentTop + speed * i)
-        },duration)
+        requestAnimationFrame(animate);
+
+
+        var coords = {  y: currentTop }; // Start at (0, 0)
+        var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
+        .to({y: targetTop }, t) // Move to (300, 200) in 1 second.
+        .easing(TWEEN.Easing.Quadratic.In) // Use an easing function to make the animation smooth.
+        .onUpdate(function() {
+          window.scrollTo(0,coords.y)
+        })
+        .start(); // Start the tween immediately.
       }
     }
     </script>
@@ -299,5 +308,33 @@
     el: '.swiper-scrollbar',
   },
   })
+</script>
+<script>
+    let specialTags = document.querySelectorAll('[data-x]')
+    for(let i =0;i<specialTags.length;i++){
+      specialTags[i].classList.add('offset')
+    }
+  window.onscroll = (x)=>{
+        yyy()
+  }
+  function yyy(){
+    let specialTags = document.querySelectorAll('[data-x]')
+
+    let minIndex = 0
+    for(let i = 0;i<specialTags.length;i++){
+        if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+          minIndex = i
+        }
+    }
+    specialTags[minIndex].classList.remove('offset')
+    let id  = specialTags[minIndex].id
+    let a = document.querySelector(`a[href="#${id}"]`)
+    let li = a.parentNode
+    let brothersAndMe = li.parentNode.children
+    for(let i =0;i<brothersAndMe.length;i++){
+      brothersAndMe[i].classList.remove('hightlight')
+    }
+    li.classList.add('hightlight')
+  }
 </script>
 </html>
